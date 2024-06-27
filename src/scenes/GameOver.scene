@@ -8,6 +8,7 @@
         "preloadPackFiles": [],
         "createMethodName": "editorCreate",
         "sceneKey": "GameOver",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
         "borderWidth": 1024,
         "borderHeight": 768
     },
@@ -31,7 +32,7 @@
             "type": "Text",
             "id": "1e1fcca9-8566-456a-add0-a30e8a31bd2a",
             "label": "textgameover",
-            "x": 513,
+            "x": 512,
             "y": 384,
             "originX": 0.5,
             "originY": 0.5,

@@ -1,3 +1,5 @@
+// You can write more code here
+
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
@@ -14,8 +16,7 @@ export default class GameOver extends Phaser.Scene {
 		/* END-USER-CTR-CODE */
 	}
 
-	/** @returns {void} */
-	editorCreate() {
+	editorCreate(): void {
 
 		// background
 		const background = this.add.image(512, 384, "background");
@@ -26,7 +27,7 @@ export default class GameOver extends Phaser.Scene {
 		background.alphaBottomRight = 0.5;
 
 		// textgameover
-		const textgameover = this.add.text(513, 384, "", {});
+		const textgameover = this.add.text(512, 384, "", {});
 		textgameover.setOrigin(0.5, 0.5);
 		textgameover.text = "Game Over";
 		textgameover.setStyle({ "align": "center", "color": "#ffffff", "fontFamily": "Arial Black", "fontSize": "64px", "stroke": "#000000", "strokeThickness":8});
@@ -38,11 +39,11 @@ export default class GameOver extends Phaser.Scene {
 
 	// Write your code here
 
-    create ()
-    {
+	create() {
+
 		this.editorCreate();
 
-        this.cameras.main.setBackgroundColor(0xff0000);
+		this.cameras.main.setBackgroundColor(0xff0000);
 
         this.input.once('pointerdown', () => {
 
@@ -50,8 +51,9 @@ export default class GameOver extends Phaser.Scene {
 
         });
 
-    }
-    /* END-USER-CODE */
+	}
+
+	/* END-USER-CODE */
 }
 
 /* END OF COMPILED CODE */

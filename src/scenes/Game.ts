@@ -4,29 +4,26 @@ import Phaser from "phaser";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
-export default class MainMenu extends Phaser.Scene {
+export default class Game extends Phaser.Scene {
 
 	constructor() {
-		super("MainMenu");
+		super("Game");
 
 		/* START-USER-CTR-CODE */
 		// Write your code here.
 		/* END-USER-CTR-CODE */
 	}
 
-	/** @returns {void} */
-	editorCreate() {
+	editorCreate(): void {
 
-		// logo
-		this.add.image(512, 384, "background");
-
-		// image_6f965f9c-4e4c-4e9e-8fd4-4bf8d35d145d
-		this.add.image(513, 384, "logo");
+		// background
+		const background = this.add.image(512, 384, "background");
+		background.alpha = 0.5;
 
 		// text
-		const text = this.add.text(512, 460, "", {});
+		const text = this.add.text(513, 384, "", {});
 		text.setOrigin(0.5, 0.5);
-		text.text = "Main Menu";
+		text.text = "Make something fun!\nand share it with us:\nsupport@phaser.io";
 		text.setStyle({ "align": "center", "color": "#ffffff", "fontFamily": "Arial Black", "fontSize": "38px", "stroke": "#000000", "strokeThickness":8});
 
 		this.events.emit("scene-awake");
@@ -35,17 +32,22 @@ export default class MainMenu extends Phaser.Scene {
 	/* START-USER-CODE */
 
 	// Write your code here
-    create ()
-    {
+
+	create() {
+
 		this.editorCreate();
+
+		this.cameras.main.setBackgroundColor(0x00ff00);
 
         this.input.once('pointerdown', () => {
 
-            this.scene.start('Game');
+            this.scene.start('GameOver');
 
         });
-    }
-        /* END-USER-CODE */
+
+	}
+
+	/* END-USER-CODE */
 }
 
 /* END OF COMPILED CODE */
