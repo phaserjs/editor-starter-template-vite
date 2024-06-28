@@ -41,11 +41,9 @@ To start the local development server use `npm run dev`.
 
 To create a production build use the command `npm run build`.
 
-This will take your game code and build it into a single bundle, ready for deployment. This bundle is saved to the `dist` folder. Please note that some templates save to the `build` folder instead. The deployment script will also copy any assets your project imported, or stored in the public assets folder.
+This will take your game code and build it into a single bundle, ready for deployment. This bundle is saved to the `dist` folder. The deployment script will also copy any assets your project imported, or stored in the public assets folder.
 
 To deploy your game, upload *all* of the contents of the `dist` folder to a public-facing web server.
-
-**Note:** In some templates, the `dist` folder has been renamed to `build` to remain within that framework's conventions.
 
 ## Phaser Editor considerations
 
@@ -53,7 +51,7 @@ To deploy your game, upload *all* of the contents of the `dist` folder to a publ
 
 You don't want to add every file in this template to your Phaser Editor project. For example, the whole of `node_modules` can be excluded.
 
-The `/.skip` file lists the folders and files to exclude from the editor's project.
+The `skip` section in the `phasereditor2d.config.json` file contains the folder and files to exclude from the project.
 
 [Learn more about resource filtering in Phaser Editor](https://phaser.io/editor/docs/misc/resources-filtering)
 
@@ -70,6 +68,21 @@ The `boot-asset-pack.json` file is used to load assets when the game first boots
 The `preload-asset-pack.json` in this template contains the rest of the assets the game needs. You are free to create additional packs as required, but for the sake of simplicity, this template has been configured with just these two packs.
 
 [Learn more about Asset Pack loading in Phaser](https://newdocs.phaser.io/docs/3.80.0/Phaser.Loader.LoaderPlugin#pack)
+
+The command `npm run build` also includes the execution of the `phaser-asset-pack-hashing` tool. It implements a "cache-busting" strategy and modifies the URLs in the asset packs and other assets in the `public` folder.
+
+### Scene, User Components, and ScriptNode configuration
+
+The Scenes, User Components, and ScriptNodes are configured to compile to TypeScript ES modules. Also, the compilers auto-import the classes used in the generated code.
+
+### ScriptNodes
+
+The project requires the following script libraries:
+
+* [@phaserjs/editor-scripts-core](https://www.npmjs.com/package/@phaserjs/editor-scripts-core)
+* [@phaserjs/editor-scripts-simple-animations](https://www.npmjs.com/package/@phaserjs/editor-scripts-simple-animations)
+
+You can add your script nodes to the `src/script-nodes` folder.
 
 ## Join the Phaser Community!
 
