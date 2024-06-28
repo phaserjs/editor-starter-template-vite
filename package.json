@@ -1,5 +1,5 @@
 {
-    "name": "template-vite-ts",
+    "name": "phaser-editor-template-vite-ts",
     "description": "A Phaser 3 TypeScript template using Vite.",
     "version": "1.2.1",
     "repository": {
@@ -23,6 +23,8 @@
         "vite": "^5.1.4"
     },
     "dependencies": {
+        "@phaserjs/editor-scripts-core": "^2.0.0",
+        "@phaserjs/editor-scripts-simple-animations": "^2.0.0",
         "phaser": "3.80.1"
     }
 }

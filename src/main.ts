@@ -1,30 +1,37 @@
-import Boot from './scenes/Boot';
-import MainGame from './scenes/Game';
-import GameOver from './scenes/GameOver';
-import MainMenu from './scenes/MainMenu';
-import Preloader from './scenes/Preloader';
+import Phaser from "phaser";
+import Level from "./scenes/Level";
+import Preload from "./scenes/Preload";
 
-import { Game, Types } from "phaser";
+class Boot extends Phaser.Scene {
 
-//  Find out more information about the Game Config at:
-//  https://newdocs.phaser.io/docs/3.70.0/Phaser.Types.Core.GameConfig
-const config: Types.Core.GameConfig = {
-    type: Phaser.AUTO,
-    width: 1024,
-    height: 768,
-    parent: 'game-container',
-    backgroundColor: '#028af8',
-    scale: {
-        mode: Phaser.Scale.FIT,
-        autoCenter: Phaser.Scale.CENTER_BOTH
-    },
-    scene: [
-        Boot,
-        Preloader,
-        MainMenu,
-        MainGame,
-        GameOver
-    ]
-};
+    constructor() {
+        super("Boot");
+    }
 
-export default new Game(config);
+    preload() {
+
+        this.load.pack("pack", "assets/preload-asset-pack.json");
+    }
+
+    create() {
+
+       this.scene.start("Preload");
+    }
+}
+
+window.addEventListener('load', function () {
+	
+	const game = new Phaser.Game({
+		width: 1280,
+		height: 720,
+		backgroundColor: "#2f2f2f",
+		parent: "game-container",
+		scale: {
+			mode: Phaser.Scale.ScaleModes.FIT,
+			autoCenter: Phaser.Scale.Center.CENTER_BOTH
+		},
+		scene: [Boot, Preload, Level]
+	});
+
+	game.scene.start("Boot");
+});
