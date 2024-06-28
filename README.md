@@ -2,15 +2,6 @@
 
 This is a Phaser Editor v4 project template that uses Vite TypeScript for bundling. It supports hot-reloading for quick development workflow and includes scripts to generate production-ready builds.
 
-### Versions
-
-This template has been updated for:
-
-- [Phaser 3.80.1](https://github.com/phaserjs/phaser)
-- Phaser Editor v4.0 and above
-
-![screenshot](screenshot.png)
-
 ## What is Phaser Editor?
 
 Phaser Editor enables you to visually create Phaser games. Instead of entering numbers in your code to position Game Objects, you can drag and drop them into place, tweak their animations, adjust their physics bodies, enable special effects, and more. It's quicker and faster for both artists and developers alike and publishes pure Phaser code.
@@ -27,8 +18,8 @@ An active subscription to Phaser Editor is required to load and use this templat
 
 | Command | Description |
 |---------|-------------|
-| `npm install` | Install project dependencies |
-| `npm run dev` | Launch a development web server |
+| `npm install`   | Install project dependencies |
+| `npm start`     | Launch a development web server |
 | `npm run build` | Create a production build in the `dist` folder |
 
 ## Writing Code
