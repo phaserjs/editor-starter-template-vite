@@ -3,8 +3,6 @@
 
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
-import PreloadBarUpdaterScript from "../script-nodes/PreloadBarUpdaterScript";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -31,9 +29,6 @@ export default class Preload extends Phaser.Scene {
 		progressBar.isFilled = true;
 		progressBar.fillColor = 14737632;
 
-		// preloadUpdater
-		new PreloadBarUpdaterScript(progressBar);
-
 		// progressBarBg
 		const progressBarBg = this.add.rectangle(553.0120849609375, 361, 256, 20);
 		progressBarBg.setOrigin(0, 0);
@@ -45,8 +40,12 @@ export default class Preload extends Phaser.Scene {
 		loadingText.text = "Loading...";
 		loadingText.setStyle({ "color": "#e0e0e0", "fontFamily": "arial", "fontSize": "20px" });
 
+		this.progressBar = progressBar;
+
 		this.events.emit("scene-awake");
 	}
+
+	private progressBar!: Phaser.GameObjects.Rectangle;
 
 	/* START-USER-CODE */
 
@@ -57,6 +56,13 @@ export default class Preload extends Phaser.Scene {
 		this.editorCreate();
 
 		this.load.pack("asset-pack", "assets/asset-pack.json");
+
+		const width = this.progressBar.width;
+
+		this.load.on("progress", (value: number) => {
+
+			this.progressBar.width = width * value;
+		});
 	}
 
 	create() {
